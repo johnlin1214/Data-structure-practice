@@ -77,7 +77,7 @@ class SinglyLinkedList
     size_count
   end
 
-  def outOfBounds?(index)
+  def outOfBounds?(index) # determine if a given index is valid
     raise IndexError if index < 1 || index > sizeOfLinkedList
   end
 
@@ -120,6 +120,7 @@ class SinglyLinkedList
   end
 end
 
+
 list = SinglyLinkedList.new(10)
 list.addToEndOfList(20)
 list.addToEndOfList(30)
@@ -134,5 +135,4 @@ puts list.delete(100) # 100 not found in list.
 list.display_linked_list # 1->10->30
 list.set(2,15) # 1->15->30
 list.insert(2,20) # 1->20->15->30
-
 
