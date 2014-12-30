@@ -31,7 +31,7 @@ class SinglyLinkedList
   def find_data_point(data_point)
     current = @head
     node_count = 0
-    while current.next_node != nil do
+    while current != nil do
       node_count += 1
       return "#{data_point} found at the #{node_count} node" if current.data == data_point
       current = current.next_node
@@ -43,7 +43,7 @@ class SinglyLinkedList
     @head = @head.next_node if @head.data == data_point # case where data_point is the first note
     current_node = @head.next_node
     previous_node = @head
-    while current_node.next_node != nil do
+    while current_node != nil do
         if current_node.data == data_point
           previous_node.next_node = current_node.next_node
           return "#{data_point} deleted"
@@ -55,15 +55,16 @@ class SinglyLinkedList
   end
 
   def get(index) # find the node at index
-    current_index = 1
-    current = @head
-    return current if index == 1
-    while current.next_node != nil do
-      current = current.next_node
-      current_index += 1
-      return current if current_index == index
+    unless outOfBounds?(index)
+      current_index = 1
+      current = @head
+      return current if index == 1
+      while current.next_node != nil do
+        current = current.next_node
+        current_index += 1
+        return current if current_index == index
+      end
     end
-    puts "Not a valid index"
   end
 
   def sizeOfLinkedList
@@ -80,7 +81,6 @@ class SinglyLinkedList
     raise IndexError if index < 1 || index > sizeOfLinkedList
   end
 
-
   def set(index, data_point) # sets a node's value at a specific index
     unless outOfBounds?(index)
       current_index = 1
@@ -95,7 +95,6 @@ class SinglyLinkedList
 
   def insert(index, data_point) # inserts a node at a specific index
      unless outOfBounds?(index)
-      puts "hello"
       current_index = 1
       current_node = @head
       until current_index == index do
@@ -127,13 +126,13 @@ list.addToEndOfList(30)
 list.addToFrontOfList(1)
 list.display_linked_list # 1->10->20->30
 puts list.sizeOfLinkedList # 4
+puts list.get(1) # <Node:0x007f90d40888a8>
 puts list.find_data_point(10) # 10 found at the 2 node
 puts list.find_data_point(100) # 100 not found in list.
 puts list.delete(20) # 20 deleted
 puts list.delete(100) # 100 not found in list.
 list.display_linked_list # 1->10->30
-puts list.get(1) # <Node:0x007f90d40888a8>
-puts list.get(100) # Not a valid index
 list.set(2,15) # 1->15->30
 list.insert(2,20) # 1->20->15->30
-list.display_linked_list
+
+
