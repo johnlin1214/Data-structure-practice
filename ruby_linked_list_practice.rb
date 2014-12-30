@@ -1,3 +1,5 @@
+# Implementation of a singly linked list in ruby.
+
 class Node
   attr_accessor :data, :next_node
 
@@ -26,19 +28,30 @@ class SinglyLinkedList
     @head = node
   end
 
-  def find(search_data)
+  def find_data_point(data_point)
     current = @head
     node_count = 0
     while current.next_node != nil do
       node_count += 1
-      return "#{search_data} found at the #{node_count} node" if current.data == search_data
+      return "#{data_point} found at the #{node_count} node" if current.data == data_point
       current = current.next_node
     end
-    puts "#{search_data} not found in list."
+    puts "#{data_point} not found in list."
   end
 
-  def delete
-
+  def delete(data_point)
+    @head = @head.next_node if @head.data == data_point
+    current_node = @head.next_node
+    previous_node = @head
+    while current_node.next_node != nil do
+        if current_node.data == data_point
+          previous_node.next_node = current_node.next_node
+          return "#{data_point} deleted"
+        end
+        previous_node = current_node
+        current_node = current_node.next_node
+    end
+    puts "#{data_point} not found in list."
   end
 
   def display_linked_list
@@ -57,8 +70,10 @@ list = SinglyLinkedList.new(10)
 list.addToEndOfList(20)
 list.addToEndOfList(30)
 list.addToFrontOfList(1)
-list.display_linked_list
-puts list.find(11)
+list.display_linked_list # 1->10->20->30
+puts list.find_data_point(10) # 10 found at the 2 node
+puts list.delete(20) # 20 deleted
+list.display_linked_list # 1->10->30
 
 
 
