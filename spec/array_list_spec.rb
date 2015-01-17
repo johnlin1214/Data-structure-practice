@@ -36,6 +36,21 @@ describe ArrayList do
     end
   end
 
+  describe "#set" do
+    before(:each) do
+      @index = 2
+      @big_index = 20
+      array_list.set("John's pet otter", @index)
+      array_list.set("John's pet otter", @big_index)
+    end
 
+    it "should replace an exisiting element at a given index" do
+      expect(array_list.get(@index)).to eq "John's pet otter"
+    end
+
+    it "should set the element at given index" do
+      expect(array_list.get(@big_index)).to eq "John's pet otter"
+    end
+  end
 end
 

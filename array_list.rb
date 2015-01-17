@@ -8,10 +8,6 @@ class ArrayList
     @size = @list.size
   end
 
-  def size
-    @size
-  end
-
   def add(element)
     last_index = @size
     increase_array_size_by_one
@@ -28,15 +24,7 @@ class ArrayList
   end
 
   def insert(element, index)
-    increase_array_size_by_one
-    current_index = 0
-    until current_index == index
-      old_list.size.times do |index|
-         current_index += 1
-        new_list.set(old_list.get(index),index)
-      end
-      p new_list
-    end
+
   end
 
   private
