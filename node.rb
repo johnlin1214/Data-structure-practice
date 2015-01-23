@@ -10,7 +10,7 @@ class Node
     @pointer = other_node
   end
 
-  def remove_after()
+  def remove_after
     @pointer = nil
   end
 end

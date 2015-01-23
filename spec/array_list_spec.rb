@@ -44,7 +44,7 @@ describe ArrayList do
       array_list.set("John's pet otter", @big_index)
     end
 
-    it "should replace an exisiting element at a given index" do
+    it "should replace an existing element at a given index" do
       expect(array_list.get(@index)).to eq "John's pet otter"
     end
 
