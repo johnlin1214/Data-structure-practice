@@ -10,14 +10,23 @@ class Stack
   end
 
   def push(value)
-    @stack.insert_last(value)
+    @stack.insert_first(value)
   end
 
   def pop
-    @stack.remove_last
+    value = top
+    @stack.remove_first
+    value
+  end
+
+  def top
+    @stack.head.value if @stack.head
   end
 
   def empty?
      @stack.size == 0
   end
 end
+
+
+
