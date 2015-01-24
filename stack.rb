@@ -1,6 +1,6 @@
 # implement a stack with a linked_list in ruby
 
-require_relative 'linked_list'
+require_relative "linked_list"
 
 class Stack
   attr_accessor :stack

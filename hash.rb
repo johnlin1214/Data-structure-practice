@@ -38,7 +38,7 @@ class MyHash
   private
 
   def hash_key(key)
-   key.to_s.bytes.reduce(:+) % 25
+   key.to_s.bytes.reduce(:+) % 17
   end
 end
 

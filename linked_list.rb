@@ -24,11 +24,11 @@ class LinkedList
   end
 
   def insert_last(element)
+    @size += 1
     new_node = Node.new(element)
     return @head = new_node if @head == nil
     last_node = tail
     last_node.pointer = new_node
-    @size += 1
   end
 
   def remove_last
