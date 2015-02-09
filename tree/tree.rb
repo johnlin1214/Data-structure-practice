@@ -25,15 +25,4 @@ class Tree
   end
 end
 
-# n1 = TreeNode.new("root")
-# n2 = TreeNode.new("level 1")
-# n3 = TreeNode.new("level 1 twin")
-# n4 = TreeNode.new("child of level 1 twin")
-# n1.add_child(n2)
-# n1.add_child(n3)
-# n3.add_child(n4)
 
-# puts "------SEARCHING TREE------"
-
-# tree = Tree.new(n1)
-# p tree.search("baby")
